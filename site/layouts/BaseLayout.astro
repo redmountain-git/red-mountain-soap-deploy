@@ -1,0 +1,160 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/oswald/500.css';
+import '@fontsource/oswald/600.css';
+import '../styles/global.css';
+import { siteConfig } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = siteConfig.description,
+  image = '/og.png',
+  noIndex = false,
+} = Astro.props;
+const pageTitle = title ? `${title} | ${siteConfig.brandName}` : siteConfig.brandName;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? siteConfig.siteUrl);
+const socialImage = new URL(image, Astro.site ?? siteConfig.siteUrl);
+const verification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
+const cloudflareToken = import.meta.env.PUBLIC_CLOUDFLARE_BEACON_TOKEN;
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: siteConfig.brandName,
+  legalName: siteConfig.legalName,
+  url: siteConfig.siteUrl,
+  email: siteConfig.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Ivins',
+    addressRegion: 'UT',
+    addressCountry: 'US',
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#5a2e1f" />
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex,nofollow" />}
+    {verification && <meta name="google-site-verification" content={verification} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <title>{pageTitle}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.brandName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+      <div class="shell site-header__inner">
+        <a class="wordmark" href="/" aria-label={`${siteConfig.brandName} home`}>
+          <span class="wordmark__mountain" aria-hidden="true"></span>
+          <span>
+            <strong>Red Mountain</strong>
+            <small>Soap · Ivins, Utah</small>
+          </span>
+        </a>
+
+        <details class="mobile-nav">
+          <summary>Menu</summary>
+          <nav aria-label="Mobile navigation">
+            {
+              siteConfig.navigation.map((item) => (
+                <a href={item.href}>{item.label}</a>
+              ))
+            }
+            <a href="/contact/">Contact</a>
+          </nav>
+        </details>
+
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          {
+            siteConfig.navigation.map((item) => (
+              <a href={item.href}>{item.label}</a>
+            ))
+          }
+          <a class="button button--small" href="/shop/">Shop soap</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell site-footer__grid">
+        <div>
+          <a class="wordmark wordmark--footer" href="/">
+            <span class="wordmark__mountain" aria-hidden="true"></span>
+            <span>
+              <strong>Red Mountain</strong>
+              <small>Soap · Ivins, Utah</small>
+            </span>
+          </a>
+          <p>Small-batch soap rooted in Southern Utah.</p>
+        </div>
+        <div>
+          <h2>Explore</h2>
+          <a href="/shop/">Soap collection</a>
+          <a href="/about/">Our story</a>
+          <a href="/calculator/">Recipe calculator</a>
+        </div>
+        <div>
+          <h2>Work with us</h2>
+          <a href="/wholesale/">Wholesale & hospitality</a>
+          <a href="/where-to-buy/">Markets & stockists</a>
+          <a href="/contact/">Contact</a>
+        </div>
+        <div>
+          <h2>The fine print</h2>
+          <a href="/policies/">Policies</a>
+          <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+          <p>{siteConfig.location}</p>
+        </div>
+      </div>
+      <div class="shell site-footer__legal">
+        <p>© {new Date().getFullYear()} {siteConfig.legalName}. All rights reserved.</p>
+        <p>Red Mountain Soap is the consumer-facing brand of {siteConfig.legalName}.</p>
+      </div>
+    </footer>
+
+    {
+      cloudflareToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: cloudflareToken })}
+        />
+      )
+    }
+  </body>
+</html>

@@ -1,0 +1,52 @@
+---
+import { isPublicHttpsUrl, siteConfig } from '../data/site';
+
+interface Props {
+  heading?: string;
+  compact?: boolean;
+}
+
+const {
+  heading = 'Occasional notes from the soap room',
+  compact = false,
+} = Astro.props;
+const formAction = import.meta.env.PUBLIC_MAILERLITE_FORM_ACTION;
+const hasForm = isPublicHttpsUrl(formAction);
+---
+
+<section class:list={['newsletter', { 'newsletter--compact': compact }]} id="updates" aria-labelledby="updates-title">
+  <div>
+    <p class="eyebrow">Field notes</p>
+    <h2 id="updates-title">{heading}</h2>
+    <p>
+      New batches, market dates, stockists, and useful tools. No manufactured urgency and no weekly quota.
+    </p>
+  </div>
+
+  {
+    hasForm ? (
+      <form class="newsletter__form" action={formAction} method="post">
+        <label for="newsletter-email">Email address</label>
+        <div class="newsletter__controls">
+          <input
+            id="newsletter-email"
+            name="fields[email]"
+            type="email"
+            autocomplete="email"
+            required
+            placeholder="you@example.com"
+          />
+          <button class="button button--dark" type="submit">Join updates</button>
+        </div>
+        <p class="form-note">Double opt-in. Unsubscribe whenever you like.</p>
+      </form>
+    ) : (
+      <div class="newsletter__pending">
+        <p>The update list is being prepared.</p>
+        <a class="button button--dark" href={`mailto:${siteConfig.email}?subject=Red%20Mountain%20Soap%20updates`}>
+          Ask to be notified
+        </a>
+      </div>
+    )
+  }
+</section>

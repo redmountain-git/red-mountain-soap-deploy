@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../data/site';
+---
+
+<BaseLayout
+  title="Policies"
+  description="Privacy, shipping, pickup, returns, and website terms for Red Mountain Soap."
+>
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Policies</p>
+      <h1>Clear terms before checkout opens.</h1>
+      <p>
+        These launch policies describe the intended operating model. Final shipping windows, return timing, and Square checkout language require owner approval before live sales.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="shell">
+      <aside class="catalog-notice">
+        <p>
+          <strong>Pre-launch draft:</strong> This page must receive legal, tax, insurance, and operational review before Square checkout is enabled.
+        </p>
+      </aside>
+
+      <nav class="policy-nav" aria-label="Policy sections">
+        <a href="#privacy">Privacy</a>
+        <a href="#shipping">Shipping</a>
+        <a href="#pickup">Local pickup</a>
+        <a href="#returns">Returns & damage</a>
+        <a href="#product-use">Product use</a>
+        <a href="#terms">Website terms</a>
+      </nav>
+
+      <section class="policy-section" id="privacy">
+        <p class="eyebrow">Privacy</p>
+        <h2>Collect less. Explain what remains.</h2>
+        <p>
+          This marketing site does not create Red Mountain Soap user accounts and does not store payment-card information. When configured, Cloudflare Web Analytics provides aggregate, privacy-oriented site measurement. Square handles checkout, payment, order, and customer records under its own terms and privacy notice. MailerLite handles newsletter subscriptions only after explicit opt-in.
+        </p>
+        <h3>Email and inquiries</h3>
+        <p>
+          Messages sent to {siteConfig.email} are retained as needed to answer the inquiry, support an order, maintain business records, or document a wholesale relationship. Newsletter consent is separate from order and inquiry correspondence.
+        </p>
+        <h3>Access and deletion</h3>
+        <p>
+          Requests concerning Red Mountain Soap-held information may be sent to <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>. Square and MailerLite account or profile requests may also need to be made through those providers.
+        </p>
+      </section>
+
+      <section class="policy-section" id="shipping">
+        <p class="eyebrow">Shipping</p>
+        <h2>Sell only what is cured and available.</h2>
+        <p>
+          Available shipping methods, charges, destinations, and estimated handling time appear in Square before payment. An order is not accepted until checkout confirms payment. Shipment timing begins after payment confirmation and excludes carrier delays outside Red Mountain Soap’s control.
+        </p>
+        <p>
+          Shipped offerings may be limited to bundles or minimum quantities when single-bar postage would be disproportionate to the order.
+        </p>
+      </section>
+
+      <section class="policy-section" id="pickup">
+        <p class="eyebrow">Local pickup</p>
+        <h2>By confirmed appointment.</h2>
+        <p>
+          The Ivins production address is private and is not a walk-in retail location. When local pickup is offered, Square will provide appointment instructions after a paid order. Customers should not arrive without a confirmed pickup time.
+        </p>
+      </section>
+
+      <section class="policy-section" id="returns">
+        <p class="eyebrow">Returns & damaged orders</p>
+        <h2>Photograph transit damage promptly.</h2>
+        <p>
+          Because soap is a personal-use product, opened or used bars are not returnable for preference changes. Incorrect, missing, or transit-damaged items should be reported promptly with the order number and clear photographs of the package and affected product.
+        </p>
+        <p>
+          Approved remedies may include replacement, refund, or store credit through the original Square transaction. The final reporting window and remedy rules must be approved before launch.
+        </p>
+      </section>
+
+      <section class="policy-section" id="product-use">
+        <p class="eyebrow">Product use</p>
+        <h2>Soap, not medical care.</h2>
+        <p>
+          Product pages describe scent, ingredients, process, and ordinary cleansing use. They do not diagnose, treat, cure, or prevent disease. For external use only. Avoid contact with eyes. Stop use if irritation occurs. Ingredient sensitivities and allergies remain individual; review the complete ingredient panel before purchase and use.
+        </p>
+      </section>
+
+      <section class="policy-section" id="terms">
+        <p class="eyebrow">Website terms</p>
+        <h2>Information may change before checkout.</h2>
+        <p>
+          Product stories and catalog previews on this site are informational. Final price, stock, weight, ingredients, taxes, fulfillment choices, and transaction terms are those shown in Square checkout at the time of purchase.
+        </p>
+        <p>
+          The recipe calculator is an educational planning tool. Its results require independent verification against authoritative ingredient specifications and safe soapmaking practices. Red Mountain Soap does not accept responsibility for production decisions made solely from calculator output.
+        </p>
+      </section>
+
+      <p><strong>Legal business:</strong> {siteConfig.legalName}, Ivins, Utah · <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a></p>
+    </div>
+  </section>
+</BaseLayout>

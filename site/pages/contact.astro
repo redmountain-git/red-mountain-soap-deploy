@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { siteConfig } from '../data/site';
+---
+
+<BaseLayout title="Contact" description="Contact Red Mountain Soap in Ivins, Utah.">
+  <section class="page-hero">
+    <div class="shell">
+      <p class="eyebrow">Contact</p>
+      <h1>Send the right kind of note.</h1>
+      <p>
+        Product questions, local availability, wholesale conversations, calculator feedback—one inbox is enough for now.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="shell contact-grid">
+      <article class="contact-card">
+        <p class="eyebrow">General & product questions</p>
+        <h2>Email the soap room</h2>
+        <p>
+          Include the product name and order number when the question concerns an existing Square order.
+        </p>
+        <a class="button" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+      </article>
+      <article class="contact-card">
+        <p class="eyebrow">Retail & hospitality</p>
+        <h2>Start a low-pressure conversation</h2>
+        <p>
+          Tell us what kind of business you run, where it is, and what role local soap might play.
+        </p>
+        <a
+          class="button button--secondary"
+          href={`mailto:${siteConfig.email}?subject=Wholesale%20or%20hospitality%20inquiry`}
+        >
+          Wholesale inquiry
+        </a>
+      </article>
+      <article class="contact-card">
+        <p class="eyebrow">Calculator feedback</p>
+        <h2>Found something useful—or odd?</h2>
+        <p>
+          Include the device, browser, and the calculation or control involved. Do not send proprietary recipes unless you intend to share them.
+        </p>
+        <a
+          class="button button--secondary"
+          href={`mailto:${siteConfig.email}?subject=Soap%20calculator%20feedback`}
+        >
+          Send calculator feedback
+        </a>
+      </article>
+      <article class="contact-card">
+        <p class="eyebrow">Location & privacy</p>
+        <h2>Ivins, Utah</h2>
+        <p>
+          Red Mountain Soap operates from a private production address. It is not a public storefront. Pickup details follow a confirmed appointment or order.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <Newsletter heading="Prefer an occasional update?" compact />
+    </div>
+  </section>
+</BaseLayout>

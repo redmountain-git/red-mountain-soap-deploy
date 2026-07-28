@@ -1,0 +1,22 @@
+{
+  "name": "red-mountain-soap-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/run-astro.mjs dev",
+    "check": "node scripts/run-astro.mjs check",
+    "build": "node scripts/run-astro.mjs build",
+    "release": "npm run check && npm run build && node scripts/sync-release.mjs && node scripts/verify-release.mjs",
+    "verify:release": "node scripts/verify-release.mjs"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/oswald": "^5.2.8",
+    "astro": "7.1.4"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "typescript": "^6.0.3"
+  }
+}

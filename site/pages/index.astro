@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { featuredProducts } from '../data/products';
+---
+
+<BaseLayout>
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow">Small batch · Ivins, Utah</p>
+        <h1>Soap with a <span>sense of place.</span></h1>
+        <p class="lede">
+          Cold-process bars inspired by canyon water, cedar mesas, brief desert blooms, and the mountain air above the heat.
+        </p>
+        <div class="hero__actions">
+          <a class="button" href="/shop/">Explore the collection</a>
+          <a class="button button--secondary" href="/wholesale/">For shops & stays</a>
+        </div>
+      </div>
+
+      <figure class="hero__visual">
+        <img
+          src="/og.png"
+          alt="Red Mountain Soap poster illustration with red sandstone cliffs near Ivins, Utah"
+          width="1200"
+          height="630"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="What guides our work">
+    <div class="shell trust-strip__grid">
+      <article>
+        <h2>Rooted here</h2>
+        <p>Made in Ivins and shaped by the colors, weather, and stillness of Southern Utah.</p>
+      </article>
+      <article>
+        <h2>Built in small batches</h2>
+        <p>A focused six-bar collection—enough variety without turning the shelf into a guessing game.</p>
+      </article>
+      <article>
+        <h2>Plain-spoken</h2>
+        <p>Clear scent descriptions and ingredient panels, without miracle claims or manufactured luxury.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="shell">
+      <header class="section-heading">
+        <div>
+          <p class="eyebrow">The opening collection</p>
+          <h2>Six bars. Six desert moods.</h2>
+          <p class="lede">
+            A compact line for travelers, locals, and anyone who wants a small piece of sandstone country at the sink.
+          </p>
+        </div>
+        <a class="text-link" href="/shop/">See all six bars <span aria-hidden="true">→</span></a>
+      </header>
+
+      <div class="product-grid">
+        {featuredProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell story-grid">
+      <div>
+        <p class="eyebrow">Not a generic “artisan” story</p>
+        <h2>A sensory memory of Southern Utah.</h2>
+        <p class="lede">
+          The line begins with place: the smell after rain, cool stone in a slot canyon, cedar after sunset, and the sharp change in air on the road to higher country.
+        </p>
+        <p>
+          The goal is simple—make a durable, useful bar with enough character to bring that place back for a moment.
+        </p>
+        <a class="text-link" href="/about/">Read our story <span aria-hidden="true">→</span></a>
+      </div>
+      <aside class="story-card">
+        <p class="eyebrow">The guiding principle</p>
+        <h2>Gift-shop worthy. Never gift-shop kitsch.</h2>
+        <p>
+          Rugged but refined. Vintage but not theatrical. Natural color, restrained copy, and packaging meant to sit comfortably beside trail maps, field guides, and well-made local goods.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--dark">
+    <div class="shell">
+      <header class="section-heading">
+        <div>
+          <p class="eyebrow">Three ways in</p>
+          <h2>Buy it, stock it, or use the tools.</h2>
+        </div>
+      </header>
+      <div class="path-grid">
+        <article class="path-card">
+          <div class="path-card__number">01</div>
+          <h3>For the sink</h3>
+          <p>Browse the six-bar collection and shipping-friendly bundles.</p>
+          <a class="text-link" href="/shop/">Shop soap →</a>
+        </article>
+        <article class="path-card">
+          <div class="path-card__number">02</div>
+          <h3>For shops & stays</h3>
+          <p>Local retail, vacation rental, and hospitality information without a hard sell.</p>
+          <a class="text-link" href="/wholesale/">Wholesale details →</a>
+        </article>
+        <article class="path-card">
+          <div class="path-card__number">03</div>
+          <h3>For soapmakers</h3>
+          <p>Use the free recipe calculator and see how a formula changes as you work.</p>
+          <a class="text-link" href="/calculator/">Open calculator →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <Newsletter />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProductMark from '../../components/ProductMark.astro';
+import { products, type Product } from '../../data/products';
+import { isPublicHttpsUrl, siteConfig } from '../../data/site';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const storeUrl = import.meta.env.PUBLIC_SQUARE_STORE_URL;
+const hasStore = isPublicHttpsUrl(storeUrl);
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  description: product.story,
+  brand: {
+    '@type': 'Brand',
+    name: siteConfig.brandName,
+  },
+  category: 'Cold-process soap',
+};
+---
+
+<BaseLayout title={product.name} description={`${product.profile}. ${product.story}`}>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(productSchema)}
+  />
+
+  <article class="product-detail">
+    <div class="shell product-detail__grid">
+      <div class="product-detail__visual">
+        <ProductMark product={product} />
+      </div>
+      <div>
+        <p class="eyebrow">{product.subtitle}</p>
+        <h1>{product.name}</h1>
+        <p class="lede">{product.story}</p>
+
+        <dl class="product-detail__profile">
+          <div>
+            <dt>Scent profile</dt>
+            <dd>{product.profile}</dd>
+          </div>
+          <div>
+            <dt>Place in the collection</dt>
+            <dd>{product.role}</dd>
+          </div>
+        </dl>
+
+        <aside class="status-note">
+          <p>
+            <strong>Before this bar goes on sale:</strong> its finished weight, full ingredient panel,
+            price, available stock, and fragrance disclosures must be approved in Square.
+          </p>
+        </aside>
+
+        <ul class="detail-list">
+          <li>Small-batch cold-process soap made in Ivins, Utah</li>
+          <li>{product.fragranceFree ? 'No added fragrance' : 'A restrained, place-based scent description'}</li>
+          <li>Final transaction details and availability confirmed at checkout</li>
+        </ul>
+
+        {
+          hasStore ? (
+            <a class="button" href={storeUrl} rel="external">Check price & availability</a>
+          ) : (
+            <a
+              class="button button--secondary"
+              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(`${product.name} availability`)}`}
+            >
+              Ask about availability
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </article>
+
+  <section class="section section--clay">
+    <div class="shell split-grid">
+      <div>
+        <p class="eyebrow">Plain-spoken product information</p>
+        <h2>Claims stop at the edge of the soap dish.</h2>
+        <p>
+          Red Mountain Soap describes scent, ingredients, process, and intended use. It does not promise to treat skin conditions, prevent illness, or perform medical work.
+        </p>
+      </div>
+      <div class="content-card">
+        <h3>Using and storing the bar</h3>
+        <p>
+          Lather with water, rinse well, and let the bar dry between uses. For external use only. Avoid the eyes and discontinue use if irritation occurs.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
