@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-29T00:12:12.158Z",
+  "businessSourceSha": "078bf58bf056750922d968ff3077a8385e4447ee",
+  "calculator": {
+    "version": "0.1.0",
+    "artifact": "red-mountain-soap-calculator-v0.1.0.tar.gz",
+    "sha256": "dff9a8f8d5f5882ef7fb1eaf117f5036f86d0cc3222551eb174e4a0dff0d4176",
+    "packages": {
+      "@redmountainsoap/calculator-core": "0.1.0",
+      "@redmountainsoap/vector-widgets": "0.1.0",
+      "@redmountainsoap/calculator-workbench": "0.1.0"
+    }
+  },
+  "websiteSha256": "56c6bc72a146960f240d4171a98c077d4aae4ab6ceb2dc7bf13347157be3d87f"
+}

@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.redmountainsoap\.com$ [NC]
+RewriteRule ^ https://redmountainsoap.com%{REQUEST_URI} [R=301,L]
+
+ErrorDocument 404 /404.html
+
+Options -Indexes

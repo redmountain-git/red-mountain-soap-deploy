@@ -5,5 +5,5 @@ deployment:
     - echo "=== deployment started $(date) ===" >> "$LOG_FILE" 2>&1
     - if [ -n "$DEPLOYPATH" ]; then echo "DEPLOYPATH=$DEPLOYPATH" >> "$LOG_FILE" 2>&1; else echo "DEPLOYPATH not set; using ${HOME}/public_html" >> "$LOG_FILE" 2>&1; export DEPLOYPATH="${HOME}/public_html"; fi
     - mkdir -p "$DEPLOYPATH" >> "$LOG_FILE" 2>&1
-    - /bin/cp -a ./src/web/. "$DEPLOYPATH/" >> "$LOG_FILE" 2>&1
+    - /bin/cp -a ./public/. "$DEPLOYPATH/" >> "$LOG_FILE" 2>&1
     - echo "=== deployment completed $(date) ===" >> "$LOG_FILE" 2>&1
