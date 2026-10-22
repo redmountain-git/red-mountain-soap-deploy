@@ -1,9 +1,33 @@
 ---
 deployment:
   tasks:
-    - LOG_FILE="${HOME}/.cpanel-deploy.log"
-    - echo "=== deployment started $(date) ===" >> "$LOG_FILE" 2>&1
-    - if [ -n "$DEPLOYPATH" ]; then echo "DEPLOYPATH=$DEPLOYPATH" >> "$LOG_FILE" 2>&1; else echo "DEPLOYPATH not set; using ${HOME}/public_html" >> "$LOG_FILE" 2>&1; export DEPLOYPATH="${HOME}/public_html"; fi
-    - mkdir -p "$DEPLOYPATH" >> "$LOG_FILE" 2>&1
-    - /bin/cp -a ./public/. "$DEPLOYPATH/" >> "$LOG_FILE" 2>&1
-    - echo "=== deployment completed $(date) ===" >> "$LOG_FILE" 2>&1
+    - |
+      set -eu
+      DEPLOYPATH="${DEPLOYPATH:-${HOME}/public_html}"
+      case "$DEPLOYPATH" in /*) ;; *) echo "Document root must be absolute" >&2; exit 1 ;; esac
+      case "$DEPLOYPATH/" in /|*'/../'*|*'/./'*|*'//'*) echo "Unsafe document root" >&2; exit 1 ;; esac
+      GAMEPATH="$DEPLOYPATH/games/rockys-boots"
+      CHECKPATH="$GAMEPATH/assets"
+      while [ "$CHECKPATH" != / ]; do
+        if [ -L "$CHECKPATH" ] || { [ -e "$CHECKPATH" ] && [ ! -d "$CHECKPATH" ]; }; then
+          echo "Unsafe game destination ancestor: $CHECKPATH" >&2; exit 1
+        fi
+        CHECKPATH="$(dirname "$CHECKPATH")"
+      done
+      if [ -d "$GAMEPATH" ]; then
+        LINKS="$(find "$GAMEPATH" -type l -print)" || exit 1
+        if [ -n "$LINKS" ]; then
+          echo "Refusing linked game destination content" >&2; exit 1
+        fi
+      fi
+      for SOURCE in ./public/games/rockys-boots/assets/* ./public/games/rockys-boots/build.json ./public/games/rockys-boots/index.html; do
+        DESTINATION="$GAMEPATH/${SOURCE#./public/games/rockys-boots/}"
+        if [ -L "$SOURCE" ] || [ ! -f "$SOURCE" ] || [ -L "$DESTINATION" ] || { [ -e "$DESTINATION" ] && [ ! -f "$DESTINATION" ]; }; then
+          echo "Unsafe game payload file or destination: $DESTINATION" >&2; exit 1
+        fi
+      done
+      mkdir -p "$GAMEPATH/assets"
+      /bin/cp -a ./public/games/rockys-boots/assets/. "$GAMEPATH/assets/"
+      /bin/cp -a ./public/games/rockys-boots/build.json "$GAMEPATH/build.json"
+      /bin/cp -a ./public/games/rockys-boots/index.html "$GAMEPATH/index.html"
+      echo "Purples 0.1.0-purples.1 promoted only to $GAMEPATH"
