@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "issue": "https://github.com/redmountain-git/logic-games/issues/85",
+  "previousDeploymentSha": "d1077624024bac19603f6a4ae2c5782839857ecd",
+  "game": {
+    "repository": "redmountain-git/logic-games",
+    "version": "0.1.0-purples.1",
+    "artifact": "logic-games-rockys-boots-v0.1.0-purples.1.tar.gz",
+    "sourceSha": "5ee1fe9802979ddcf819de17f984692c11a1151d",
+    "prototype": true,
+    "mountPath": "games/rockys-boots",
+    "sha256": "ab34db970d627741d8066934c8d4794005061fab864d6f672588f721274a9c49"
+  },
+  "payload": [
+    {
+      "path": "assets/defineProperty-xY4NeFAE.js",
+      "bytes": 1201447,
+      "sha256": "402627e7aaa0a575f25495a8f7916fe2f2853ac0a5dc1f55e84d7bd264df7059"
+    },
+    {
+      "path": "assets/index-DPfOcksx.css",
+      "bytes": 5611,
+      "sha256": "77e019527956146a4e85e33ef72f613cdcce89f745409db4d67a27d46c94ce55"
+    },
+    {
+      "path": "assets/index-p16g9Tna.js",
+      "bytes": 2751,
+      "sha256": "c5081093b721ff79b1580f785447fea62e3320fce11b868aed7b1b54803ef082"
+    },
+    {
+      "path": "assets/purples-main-BSFGcrwN.js",
+      "bytes": 22667,
+      "sha256": "bb930836bb3ce9c438df305f17ff230d017edfc2c56417fc125b06b115a10195"
+    },
+    {
+      "path": "assets/workshop-main-DiR7qG0o.js",
+      "bytes": 6028,
+      "sha256": "705fd970f99116d7d541d7d6eb7f4a1c1a614127b7db1d182bd1100f95639c44"
+    },
+    {
+      "path": "build.json",
+      "bytes": 94,
+      "sha256": "f7e7bebcd90968c3ead7b815bd2220493e76ac0d949f2f755e022998327dcc58"
+    },
+    {
+      "path": "index.html",
+      "bytes": 1938,
+      "sha256": "47003c923106fbd4e90644e1e8b202cd68a68cf5dcf148c0b6d500aa88ce6e43"
+    }
+  ],
+  "compatibility": "Physical Fire and full original-game release gates pending",
+  "promotionScope": "Only public/games/rockys-boots; existing business/calculator files preserved",
+  "archiveValidatorSourceSha": "e60cdc0a23824c9c4fb1130594094eecd215d551"
+}
