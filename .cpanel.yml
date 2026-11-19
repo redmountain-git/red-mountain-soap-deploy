@@ -30,4 +30,4 @@ deployment:
       /bin/cp -a ./public/games/rockys-boots/assets/. "$GAMEPATH/assets/"
       /bin/cp -a ./public/games/rockys-boots/build.json "$GAMEPATH/build.json"
       /bin/cp -a ./public/games/rockys-boots/index.html "$GAMEPATH/index.html"
-      echo "Purples 0.1.0-purples.1 promoted only to $GAMEPATH"
+      echo "Purples 0.1.0-purples.2 promoted only to $GAMEPATH"

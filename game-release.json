@@ -1,15 +1,15 @@
 {
   "schemaVersion": 1,
-  "issue": "https://github.com/redmountain-git/logic-games/issues/85",
-  "previousDeploymentSha": "d1077624024bac19603f6a4ae2c5782839857ecd",
+  "issue": "https://github.com/redmountain-git/logic-games/issues/86",
+  "previousDeploymentSha": "6b94ac2c1dcedee0cee4a01d5f4c2736a0f852fd",
   "game": {
     "repository": "redmountain-git/logic-games",
-    "version": "0.1.0-purples.1",
-    "artifact": "logic-games-rockys-boots-v0.1.0-purples.1.tar.gz",
-    "sourceSha": "5ee1fe9802979ddcf819de17f984692c11a1151d",
+    "version": "0.1.0-purples.2",
+    "artifact": "logic-games-rockys-boots-v0.1.0-purples.2.tar.gz",
+    "sourceSha": "71a172ac97cf863d11f4e7f8baef4bacf68e1832",
     "prototype": true,
     "mountPath": "games/rockys-boots",
-    "sha256": "ab34db970d627741d8066934c8d4794005061fab864d6f672588f721274a9c49"
+    "sha256": "2831a3c8bfc17641cea5bd3f97021cca9dc81fa4a9d9ec83d3407b55c6544dc5"
   },
   "payload": [
     {
@@ -18,37 +18,37 @@
       "sha256": "402627e7aaa0a575f25495a8f7916fe2f2853ac0a5dc1f55e84d7bd264df7059"
     },
     {
-      "path": "assets/index-DPfOcksx.css",
-      "bytes": 5611,
-      "sha256": "77e019527956146a4e85e33ef72f613cdcce89f745409db4d67a27d46c94ce55"
+      "path": "assets/index-CsyIgi7Y.css",
+      "bytes": 6805,
+      "sha256": "139343c95a71f918727e38640c45c866d1dc9ca1d79f09defc3a4df400b2491a"
     },
     {
-      "path": "assets/index-p16g9Tna.js",
+      "path": "assets/index-DgHy22Gr.js",
       "bytes": 2751,
-      "sha256": "c5081093b721ff79b1580f785447fea62e3320fce11b868aed7b1b54803ef082"
+      "sha256": "b17b835f72699c9c07602e01d20b50b31a3b520023ecd8392b75f4e011a3bc98"
     },
     {
-      "path": "assets/purples-main-BSFGcrwN.js",
-      "bytes": 22667,
-      "sha256": "bb930836bb3ce9c438df305f17ff230d017edfc2c56417fc125b06b115a10195"
+      "path": "assets/purples-main-BEosmtvM.js",
+      "bytes": 32175,
+      "sha256": "9b250c6cfee0650c5817561988a9d351474c3c78303bbbe7d5c87926f0f6443b"
     },
     {
-      "path": "assets/workshop-main-DiR7qG0o.js",
+      "path": "assets/workshop-main-DAn-Qqoh.js",
       "bytes": 6028,
-      "sha256": "705fd970f99116d7d541d7d6eb7f4a1c1a614127b7db1d182bd1100f95639c44"
+      "sha256": "2c0175d2882bb49b5b54e849ccf8f7e93c965ac7000bec1866d5c27b50014931"
     },
     {
       "path": "build.json",
       "bytes": 94,
-      "sha256": "f7e7bebcd90968c3ead7b815bd2220493e76ac0d949f2f755e022998327dcc58"
+      "sha256": "3492ccfee08bc4c3dc910ca1c7e4afb7f2d6a2149d06ee416655a09316f21d5a"
     },
     {
       "path": "index.html",
       "bytes": 1938,
-      "sha256": "47003c923106fbd4e90644e1e8b202cd68a68cf5dcf148c0b6d500aa88ce6e43"
+      "sha256": "107b612d469f335cd089b5f0e84f317dd69fca9070bdcb9de5ffb9bd6cb592c9"
     }
   ],
-  "compatibility": "Physical Fire and full original-game release gates pending",
-  "promotionScope": "Only public/games/rockys-boots; existing business/calculator files preserved",
+  "compatibility": "Physical Fire and family learning observations pending",
+  "promotionScope": "Only public/games/rockys-boots",
   "archiveValidatorSourceSha": "e60cdc0a23824c9c4fb1130594094eecd215d551"
 }
