@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1785282902262,
+  "timestamp": 1795322646167,
   "index": "/calculator/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/calculator/favicon.ico",
         "/calculator/index.html",
-        "/calculator/main-RXMWKTGM.js",
+        "/calculator/main-KX2GSMMY.js",
         "/calculator/manifest.webmanifest",
         "/calculator/styles-HTKZAKEV.css"
       ],
@@ -36,9 +36,9 @@
   "hashTable": {
     "/calculator/favicon.ico": "4e23d0f9b6ddaf3c9ddef90dbaed2342941297b5",
     "/calculator/icons/icon.svg": "1d78781eb8d689a40c1150f2b607e2fa56fd8ea6",
-    "/calculator/index.html": "e48c585882d1fed31b564b810c954b49ef24e8a7",
-    "/calculator/main-RXMWKTGM.js": "66ad0fa86accdb584113340734762ecc7e436585",
-    "/calculator/manifest.webmanifest": "ccccb4d1fab4f7b54fa297b1d88f0690c91c1768",
+    "/calculator/index.html": "3594f3d5bdeef89e59c8c2beff7379f007966400",
+    "/calculator/main-KX2GSMMY.js": "d06c9979ec1627745b2132f4d0f518b1a7dce11e",
+    "/calculator/manifest.webmanifest": "39faa34cb3295103d860336f0667995a9d48405e",
     "/calculator/styles-HTKZAKEV.css": "8172bb614975d269e7199550a87b91939d0d672a"
   },
   "navigationUrls": [
