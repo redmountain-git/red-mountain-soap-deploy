@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-29T00:12:12.158Z",
-  "businessSourceSha": "078bf58bf056750922d968ff3077a8385e4447ee",
+  "generatedAt": "2026-11-22T02:56:55.796Z",
+  "businessSourceSha": "f965197bd818a428c135cddd04cdcd51edb54bc9",
   "calculator": {
     "version": "0.1.0",
     "artifact": "red-mountain-soap-calculator-v0.1.0.tar.gz",
@@ -12,5 +12,11 @@
       "@redmountainsoap/calculator-workbench": "0.1.0"
     }
   },
-  "websiteSha256": "56c6bc72a146960f240d4171a98c077d4aae4ab6ceb2dc7bf13347157be3d87f"
+  "suite": {
+    "repository": "redmountain-git/soap-suite",
+    "version": "0.1.0",
+    "artifact": "soap-suite-browser-v0.1.0.tar.gz",
+    "sha256": "5dae727ed44a9310795e38e464796001d53f132d54802027ebe685bf73f2c894"
+  },
+  "websiteSha256": "eb70aafcf640181949917f2a5e98e389653a7e15e47011137a790da0ea584cd1"
 }

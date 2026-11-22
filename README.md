@@ -4,12 +4,12 @@ This repository is generated from a verified
 `red-mountain-soap-business` composite release.
 
 - `public/` is the complete cPanel document root.
-- `release.json` identifies the business source revision and exact calculator
-  release.
+- `release.json` identifies the website source revision and the pinned
+  calculator and Soap Suite browser builds under `public/calculator/` and `public/suite/`.
 - `.cpanel.yml` only promotes the already-built files.
 
 Do not hand-edit generated site files here. Change source in the business or
-calculator repository and publish a new composite release.
+calculator or Soap Suite repository and publish a new composite release.
 
 ## Authorized Purples game-only deployment
 
