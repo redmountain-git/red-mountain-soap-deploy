@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-22T02:56:55.796Z",
-  "businessSourceSha": "f965197bd818a428c135cddd04cdcd51edb54bc9",
+  "generatedAt": "2026-11-22T03:01:44.781Z",
+  "businessSourceSha": "a5bccd33fae58851979759cc2a721a2741d654c3",
   "calculator": {
     "version": "0.1.0",
     "artifact": "red-mountain-soap-calculator-v0.1.0.tar.gz",
